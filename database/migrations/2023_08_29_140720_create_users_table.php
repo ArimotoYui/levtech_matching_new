@@ -20,9 +20,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->text('image')->nullable();
-            $table->integer('age');
-            $table->foreignId('sex_id');
-            $table->foreignId('like_titles_id');
+            $table->integer('age')->nullable();
+            $table->foreignId('sex_id')->nullable();
+            $table->foreignId('like_titles_id')->nullable();
             $table->foreignId('hate_titles_id')->nullable();
             $table->text('comment')->nullable();
             $table->rememberToken();
