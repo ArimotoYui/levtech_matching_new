@@ -27,6 +27,7 @@ return new class extends Migration
             $table->text('comment')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->timestamp('last_login_at')->nullable();
             $table->softDeletes();
         });
     }
@@ -39,5 +40,8 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+        $table->dropColumn('last_login_at');
+    });
     }
 };
